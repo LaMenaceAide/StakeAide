@@ -10,82 +10,69 @@
    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
-   <style>
-      body {
-         background-color: #1B2B38;
-      }
+<style>
+   .titreCollapse {
+      background-color: #1B2B38;
+      background-image: url("fond_btn.svg");
+      background-repeat: no-repeat;
+      margin: 4px;
+      border-bottom: unset !important;
+      color: white;
+      background-position: center;
+      height: 60px;
+      padding-top: 8px;
+      margin-bottom: 8px;
 
-      .titreCollapse {
-         background-color: #1B2B38;
-         background-image: url("fond_btn.svg");
-         background-repeat: no-repeat;
-         background-position: center;
-         margin: 4px;
-         margin-bottom: 8px;
-         padding-top: 8px;
-         height: 60px;
-         color: white;
-         border-radius: 10px;
-         transition: background-color 0.3s ease;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      }
+      /* ✅ Added border like in the other site */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+   }
 
-      .titreCollapse:hover {
-         background-color: #223544;
-         cursor: pointer;
-      }
+   li {
+      box-shadow: unset !important;
+   }
 
-      .collapsible-header .material-icons {
-         color: white !important;
-      }
+   .imgDroite {
+      float: right !important;
+      margin-right: 0 !important;
+   }
 
-      li {
-         box-shadow: unset !important;
-      }
+   .text {
+      text-align: left;
+      width: 94% !important;
+      margin: auto;
+      color: #FFFFFF;
+      border-bottom: unset !important;
+      margin-top: -8px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+   }
 
-      .imgDroite {
-         float: right !important;
-         margin-right: 0 !important;
-      }
+   p {
+      padding: 1rem !important;
+   }
 
-      .text {
-         text-align: left;
-         width: 94% !important;
-         margin: auto;
-         color: #FFFFFF;
-         border-bottom: unset !important;
-         margin-top: -8px;
-         border-bottom-left-radius: 10px;
-         border-bottom-right-radius: 10px;
-         background-color: #101B22;
-         padding: 10px 0;
-      }
+   .btnContainer {
+      max-width: 360px;
+      min-width: 360px;
+   }
 
-      p {
-         padding: 1rem !important;
-      }
+   .imgLeft {
+      margin-top: 3px;
+      text-align: center;
+      float: right;
+   }
 
-      .btnContainer {
-         max-width: 360px;
-         min-width: 360px;
-      }
+   .s10Right {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+   }
 
-      .imgLeft {
-         margin-top: 3px;
-         text-align: center;
-         float: right;
-      }
-
-      .s10Right {
-         padding-right: 0 !important;
-         padding-left: 0 !important;
-      }
-
-      .btnRedirection {
-         background-color: transparent;
-         border-radius: 5px;
-         border-color: white;
-      }
+   .btnRedirection {
+      background-color: transparent;
+      border-radius: 5px;
+      border-color: white;
+   }
    </style>
 </head>
 
