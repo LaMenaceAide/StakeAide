@@ -6,83 +6,106 @@
       font-family: Arial, sans-serif;
    }
 
-   /* Collapsible Item Container */
-   .btnContainer {
-      max-width: 360px;
-      min-width: 360px;
-      margin: 20px auto;
-   }
-
-   /* Header Style (Button Part) */
-   .titreCollapse {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      margin: 10px 0;
-      padding-top: 8px;
-      height: 60px;
-      color: white;
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s ease;
-   }
-
-   .titreCollapse:hover {
-      background: rgba(255, 255, 255, 0.1);
-   }
-
-   li {
-      box-shadow: unset !important;
-   }
-
-   .collapsible {
-      border: unset !important;
+   ul.collapsible {
+      border: none !important;
       box-shadow: none !important;
       padding: 20px 0;
    }
 
-   .imgDroite {
-      float: right !important;
-      margin-right: 0 !important;
+   /* 🟦 Le bloc entier (carte) */
+   .btnContainer {
+      max-width: 360px;
+      min-width: 360px;
+      margin: 20px auto;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
    }
 
-   .imgLeft {
-      margin-top: 3px;
-      text-align: center;
-      float: right;
+   /* 🟦 En-tête (bouton cliquable) */
+   .titreCollapse {
+      background-color: transparent;
+      padding: 12px 10px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
    }
 
+   /* 🟦 Hover effet */
+   .titreCollapse:hover {
+      background-color: rgba(255, 255, 255, 0.07);
+      transition: background 0.3s ease;
+   }
+
+   /* 🟦 Texte à droite (titre) */
    .s10Right {
-      padding-right: 0 !important;
-      padding-left: 0 !important;
+      padding: 0 !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
    }
 
-   /* Collapsible Body (opened part) */
+   /* 🟦 Icône de droite */
+   .imgDroite {
+      float: right;
+      margin-left: auto;
+      font-size: 24px;
+   }
+
+   /* 🟦 Image de gauche (pas modifiée) */
+   .imgLeft {
+      margin-top: 4px;
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+   }
+
+   /* 🟦 Contenu quand ouvert */
    .collapsible-body.text {
-      text-align: left;
-      width: 94% !important;
-      margin: auto;
-      color: #FFFFFF;
       background-color: #101B22;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-      margin-top: -8px;
-      padding: 1rem !important;
+      color: #FFFFFF;
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      line-height: 1.5em;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+   }
+
+   /* 🟦 Supprimer l'ombre par défaut de Materialize */
+   li {
+      box-shadow: none !important;
+      list-style: none;
+   }
+
+   /* 🟦 Titres bleus dans les paragraphes */
+   p u {
+      font-weight: bold;
+      color: #00BCD4;
    }
 
    p {
-      padding: 1rem 0 !important;
+      margin: 0;
+      padding: 0;
    }
 
+   /* 🟦 Bouton Tutoriel */
    .btnRedirection {
       background-color: transparent;
-      border-radius: 5px;
       border: 1px solid white;
+      border-radius: 5px;
       color: white;
       padding: 5px 10px;
       cursor: pointer;
+      transition: background-color 0.2s ease;
    }
 
    .btnRedirection:hover {
