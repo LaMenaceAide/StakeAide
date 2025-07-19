@@ -1,252 +1,223 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
-   <title>The Materialize Collapsible Example</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <meta charset="UTF-8">
+  <title>The Materialize Collapsible Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
-   <style>
-      .titreCollapse {
-         background-color: #1B2B38;
-         background-image: url("fond_btn.svg");
-         background-repeat: no-repeat;
-         margin: 4px;
-         border-bottom: unset !important;
-         color: white;
-         background-position: center;
-         height: 60px;
-         padding-top: 8px;
-         margin-bottom: 8px;
-      }
+  <!-- ✅ STYLE AJOUTÉ ICI -->
+  <style>
+    body {
+      background-color: #1B2B38;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-      li {
-         box-shadow: unset !important;
-      }
+    ul.collapsible {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 20px 0;
+    }
 
-      .imgDroite {
-         float: right !important;
-         margin-right: 0 !important;
-      }
+    .btnContainer {
+      max-width: 360px;
+      min-width: 360px;
+      margin: 20px auto;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-      .text {
-         text-align: left;
-         width: 94% !important;
-         margin: auto;
-         color: #FFFFFF;
-         border-bottom: unset !important;
-         margin-top: -8px;
-         border-bottom-left-radius: 10px;
-         border-bottom-right-radius: 10px;
-      }
+    .titreCollapse {
+      background-color: transparent;
+      padding: 12px 10px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+    }
 
-      p {
-         padding: 1rem !important;
-      }
+    .titreCollapse:hover {
+      background-color: rgba(255, 255, 255, 0.07);
+      transition: background 0.3s ease;
+    }
 
-      .btnContainer {
-         max-width: 360px;
-         min-width: 360px;
-      }
+    .s10Right {
+      padding: 0 !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+    }
 
-      .imgLeft {
-         margin-top: 3px;
-         text-align: center;
-         float: right;
-      }
+    .imgDroite {
+      float: right;
+      margin-left: auto;
+      font-size: 24px;
+    }
 
-      .s10Right {
-         padding-right: 0 !important;
-         padding-left: 0 !important;
-      }
+    .imgLeft {
+      margin-top: 4px;
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
 
-      .btnRedirection {
-         background-color: transparent;
-         border-radius: 5px;
-         border-color: white;
-      }
-   </style>
+    .collapsible-body.text {
+      background-color: #101B22;
+      color: #FFFFFF;
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      line-height: 1.5em;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+
+    li {
+      box-shadow: none !important;
+      list-style: none;
+    }
+
+    p u {
+      font-weight: bold;
+      color: #00BCD4;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .btnRedirection {
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 5px;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btnRedirection:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 
-<body style="background-color:#1B2B38">
-   <div>
-      <h5 class="center-align" style="margin:0"><img src="aide.png" style="width: 360px;"></h5>
-   </div>
-   <ul class="collapsible" style="margin-top:-4px;border:unset !important;box-shadow: none !important;">
-      <li id="vpnItem" class="container btnContainer">
-         <div class="row collapsible-header titreCollapse">
-            <div class="col s2">
-               <img src="https://supiram.github.io/STAKE/VPN.svg" class="imgLeft">
-            </div>
-            <div class="col s10 s10Right">
-               VPN : aide et conseil<i class="material-icons imgDroite">chevron_right</i>
-            </div>
-         </div>
-         <div style="background-color:#101B22" class="collapsible-body text">
-            <p><u>Étape 1 : Choisissez un VPN gratuit réputé.</u><br><br>
-               Nous vous recommandons plusieurs VPN gratuits tels que : <a href="https://hola.org/">HolaVPN</a>,
-               TunnelBear...<br><br>
+<body>
+  <div>
+    <h5 class="center-align" style="margin:0">
+      <img src="aide.png" style="width: 360px;">
+    </h5>
+  </div>
 
-               <u>Étape 2 : Téléchargez et installez l'application.</u><br><br>
-               Visitez le site web du VPN choisi, puis téléchargez et installez l’extension ou l’application sur votre appareil.<br><br>
+  <ul class="collapsible">
+    <!-- 🔹 Bloc VPN -->
+    <li id="vpnItem" class="container btnContainer">
+      <div class="row collapsible-header titreCollapse">
+        <div class="col s2">
+          <img src="https://supiram.github.io/STAKE/VPN.svg" class="imgLeft">
+        </div>
+        <div class="col s10 s10Right">
+          VPN : aide et conseil<i class="material-icons imgDroite">chevron_right</i>
+        </div>
+      </div>
+      <div class="collapsible-body text">
+        <p><u>Étape 1 :</u> Choisissez un VPN gratuit comme HolaVPN ou TunnelBear.<br><br>
+          <u>Étape 2 :</u> Installez l'application.<br><br>
+          <u>Étape 3 :</u> Inscrivez-vous et connectez-vous.<br><br>
+          <u>Étape 4 :</u> Sélectionnez un serveur (ex : Norvège) et connectez-vous.<br><br>
+          C'est tout ! Vous êtes connecté via un VPN.
+        </p>
+      </div>
+    </li>
 
-               <u>Étape 3 : Inscrivez-vous et connectez-vous.</u><br><br>
-               Créez un compte gratuit à l’aide d’une adresse e-mail valide, puis connectez-vous à l’application.<br><br>
+    <!-- 🔹 Bloc Inscription -->
+    <li id="inscriptionItem" class="container btnContainer">
+      <div class="row collapsible-header titreCollapse" id="btnInscription">
+        <div class="col s2">
+          <img src="https://supiram.github.io/STAKE/inscription.svg" class="imgLeft">
+        </div>
+        <div class="col s10 s10Right">
+          Comment s'inscrire ?<i class="material-icons imgDroite">chevron_right</i>
+        </div>
+      </div>
+      <div class="collapsible-body text">
+        <p><u>Étape 1 :</u> Allez sur <a href="#" onclick="ouvreLienAffi()">Stake.bet</a> puis cliquez sur "S'inscrire".<br><br>
+          <u>Étape 2 :</u> Remplissez le formulaire.<br><br>
+          <u>Étape 3 :</u> Vérifiez votre e-mail.<br><br>
+          Pour un bonus, cliquez sur "Accéder aux bonus".
+        </p>
+      </div>
+    </li>
 
-               <u>Étape 4 : Sélectionnez un serveur et connectez-vous.</u><br><br>
-               Choisissez un serveur (de préférence situé en Norvège ou en Finlande), puis cliquez sur le bouton de connexion pour établir une connexion sécurisée.<br><br>
+    <!-- 🔹 Bloc Dépôt -->
+    <li id="depotItem" class="container btnContainer">
+      <div class="row collapsible-header titreCollapse">
+        <div class="col s2">
+          <img src="https://supiram.github.io/STAKE/deposit.svg" class="imgLeft">
+        </div>
+        <div class="col s10 s10Right">
+          Comment déposer sur Stake ?<i class="material-icons imgDroite">chevron_right</i>
+        </div>
+      </div>
+      <div class="collapsible-body text">
+        <p><u>Étape 1 :</u> Connectez-vous et allez dans "Portefeuille".<br><br>
+          <u>Étape 2 :</u> Choisissez votre méthode (crypto ou carte via Moonpay).<br><br>
+          <u>Étape 3 :</u> Suivez les instructions et confirmez.<br><br>
+          Dépôt terminé !
+        </p>
+      </div>
+    </li>
 
-               C'est tout ! Vous êtes maintenant connecté via un VPN et votre navigation est sécurisée et anonyme.
-            </p>
-         </div>
-      </li>
+    <!-- 🔹 Bloc Retrait -->
+    <li id="retraitItem" class="container btnContainer">
+      <div class="row collapsible-header titreCollapse">
+        <div class="col s2">
+          <img src="https://supiram.github.io/STAKE/retirer.svg" class="imgLeft">
+        </div>
+        <div class="col s10 s10Right">
+          Comment retirer sur Stake ?<i class="material-icons imgDroite">chevron_right</i>
+        </div>
+      </div>
+      <div class="collapsible-body text">
+        <p><u>Étape 1 :</u> Connectez-vous et ouvrez "Portefeuille".<br><br>
+          <u>Étape 2 :</u> Cliquez sur "Retirer" et choisissez une balance.<br><br>
+          <u>Étape 3 :</u> Entrez votre adresse de portefeuille et confirmez.<br><br>
+          Retrait en 5 à 10 minutes.
+        </p>
+      </div>
+    </li>
+  </ul>
 
-      <li id="inscriptionItem" class="container btnContainer">
-         <div class="row collapsible-header titreCollapse" id="btnInscription">
-            <div class="col s2">
-               <img src="https://supiram.github.io/STAKE/inscription.svg" class="imgLeft">
-            </div>
-            <div class="col s10 s10Right">
-               Comment s'inscrire ?<i class="material-icons imgDroite">chevron_right</i>
-            </div>
-         </div>
-         <div style="background-color:#101B22" class="collapsible-body text" id="tutorielInscription">
-            <p><u>Étape 1 :</u><br><br>
+  <script>
+    // Fonctions d'ouverture auto
+    function ouvreLienAffi() {
+      window.open("https://stake.com/?c=LaMenaceBonus");
+    }
 
-               Rendez-vous sur le site : <a href="" onclick="ouvreLienAffi()">Stake.bet</a> puis cliquez sur
-               le
-               bouton "S'inscrire" ou "Créer un compte".<br><br>
-
-               <u>Étape 2 :</u><br><br>
-
-               Remplissez le formulaire d'inscription en fournissant les informations requises, telles que votre adresse e-mail, un mot de passe, un nom d'utilisateur, etc.<br><br>
-
-               <u>Étape 3 :</u><br><br>
-
-               Vérifiez votre adresse e-mail en cliquant sur le lien de confirmation envoyé par Stake.<br><br>
-
-               Bonne chance ! Si vous souhaitez profiter d'un bonus de 30€ ou 200%, il suffit de retourner au menu
-               principal et de cliquer sur "Accéder aux bonus".
-            </p>
-         </div>
-      </li>
-
-      <li id="depotItem" class="container btnContainer">
-         <div class="row collapsible-header titreCollapse">
-            <div class="col s2">
-               <img src="https://supiram.github.io/STAKE/deposit.svg" class="imgLeft">
-            </div>
-            <div class="col s10 s10Right">
-               Comment déposer sur Stake ?<i class="material-icons imgDroite">chevron_right</i>
-            </div>
-         </div>
-         <div style="background-color:#101B22" class="collapsible-body text">
-            <p><u>Étape 1 : Accédez à votre compte</u><br><br>
-
-               Connectez-vous à votre compte en utilisant vos identifiants (adresse e-mail et mot de passe). Si vous n'avez pas encore de compte, voici un tutoriel pour en créer un : <button class="btnRedirection" href=""
-                  onclick="clickButton()">Tutoriel</button><br>
-               Une fois connecté, cliquez sur "Portefeuille", en haut au centre de votre écran.<br><br>
-
-               <u>Étape 2 : Choisissez la méthode de dépôt</u><br><br>
-
-               Sur la page de dépôt, vous verrez différentes options pour déposer des fonds. Sélectionnez la méthode qui vous convient le mieux :<br><br>
-               - Cryptomonnaie : copiez l'adresse de dépôt ou scannez le code QR fourni par Stake, puis transférez les fonds depuis votre portefeuille de cryptomonnaie.<br>
-               - Carte de crédit/débit : vous devrez passer par Moonpay. Suivez les instructions affichées sur le site de Moonpay.<br><br>
-
-               <u>Étape 3 : Confirmez le dépôt</u><br><br>
-
-               Une fois la transaction confirmée, les fonds seront crédités sur votre compte.
-               Remarque : Les délais de traitement peuvent varier selon la méthode choisie, alors soyez patient si la transaction prend un peu de temps.
-               Si vous rencontrez des problèmes ou avez des questions, n’hésitez pas à contacter le support client de Stake pour obtenir de l’aide.<br><br>
-
-               Et voilà ! Vous savez désormais comment déposer des fonds sur Stake en 3 étapes simples.<br><br>
-            </p>
-         </div>
-      </li>
-
-      <li id="retraitItem" class="container btnContainer">
-         <div class="row collapsible-header titreCollapse">
-            <div class="col s2">
-               <img src="https://supiram.github.io/STAKE/retirer.svg" class="imgLeft">
-            </div>
-            <div class="col s10 s10Right">
-               Comment retirer sur Stake ?<i class="material-icons imgDroite">chevron_right</i>
-            </div>
-         </div>
-         <div style="background-color:#101B22" class="collapsible-body text">
-            <p><u>Étape 1 : Accédez à votre compte</u><br><br>
-
-               Connectez-vous à votre compte en utilisant vos identifiants (adresse e-mail et mot de passe).<br>
-
-               Une fois connecté, cliquez sur "Portefeuille" en haut, au centre de votre écran.<br><br>
-
-               <u>Étape 2 : Choisissez la balance à retirer</u><br><br>
-
-               Dans le menu "Portefeuille", cliquez sur "Retirer" pour accéder à vos différentes balances.
-               Sélectionnez celle depuis laquelle vous souhaitez effectuer un retrait.
-               Ensuite, renseignez l’adresse de retrait correspondant à la cryptomonnaie choisie (BTC, ETH, LTC, etc.).
-               <br><br>
-
-               <u>Étape 3 : Confirmez le retrait</u><br><br>
-
-               Assurez-vous que l’adresse affichée dans le champ "Adresse" est bien la vôtre.
-               Renseignez ensuite le montant que vous souhaitez retirer, puis cliquez sur le bouton de validation pour confirmer l’opération.
-               <br><br>
-
-               Et voilà ! Vous êtes prêt à retirer vos fonds.<br><br>
-
-              La transaction devrait apparaître dans votre portefeuille crypto sous 5 à 10 minutes.<br>
-            Bien joué !
-            </p>
-         </div>
-      </li>
-   </ul>
-
-   <script type="text/javascript">
-      // Simulate click function
-      function clickButton() {
-         document.getElementById("btnInscription").click();
-      }
-
-      function ouvreLienAffi() {
-         window.open("https://stake.com/?c=LaMenaceBonus");
-      }
-
-      function changeLanguage() {
-         const language = document.getElementById('languageSelect').value;
-         const elements = document.querySelectorAll('.collapsible-body');
-
-         elements.forEach(element => {
-            if (language === 'fr') {
-               element.innerHTML = element.getAttribute('data-fr');
-            } else if (language === 'en') {
-               element.innerHTML = element.getAttribute('data-en');
-            } else if (language === 'no') {
-               element.innerHTML = element.getAttribute('data-no');
-            }
-         });
-      }
-
-      window.onload = function () {
-         const urlParams = new URLSearchParams(window.location.search);
-         const item = urlParams.get('item');
-
-         if (item === 'vpn') {
-            document.getElementById('vpnItem').querySelector('.collapsible-header').click();
-         } else if (item === 'inscription') {
-            document.getElementById('inscriptionItem').querySelector('.collapsible-header').click();
-         } else if (item === 'depot') {
-            document.getElementById('depotItem').querySelector('.collapsible-header').click();
-         } else if (item === 'retrait') {
-            document.getElementById('retraitItem').querySelector('.collapsible-header').click();
-         }
-         changeLanguage(); // Initialize with default language
-      }
-   </script>
-
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const item = urlParams.get('item');
+      if (item === 'vpn') document.getElementById('vpnItem').querySelector('.collapsible-header').click();
+      if (item === 'inscription') document.getElementById('inscriptionItem').querySelector('.collapsible-header').click();
+      if (item === 'depot') document.getElementById('depotItem').querySelector('.collapsible-header').click();
+      if (item === 'retrait') document.getElementById('retraitItem').querySelector('.collapsible-header').click();
+    }
+  </script>
 </body>
 
 </html>
